@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="main_activity">
+        <item>@string/home</item>
+        <item>@string/mine</item>
+    </string-array>
+
+    <string-array name="monitor">
+        <item>@string/status_monitor</item>
+        <item>@string/device_contral</item>
+    </string-array>
+
+    <string-array name="work_mode">
+        <item>全自动模式</item>
+        <item>半自动模式</item>
+    </string-array>
+
+    <string-array name="pipeline_time">
+　　　　　　<item>30min</item>
+　　　　　　<item>40min</item>
+　　　　　　<item>50min</item>
+　　　　　　<item>60min</item>
+    </string-array>
+
+    <string-array name="spray_capacity">
+　　　　　　<item>0.2m³</item>
+　　　　　　<item>0.5m³</item>
+　　　　　　<item>0.8m³</item>
+　　　　　　<item>1m³</item>
+    </string-array>
+
+    <string-array name="gear">
+　　　　　　<item>低档</item>
+　　　　　　<item>中档</item>
+　　　　　　<item>高档</item>
+    </string-array>
+
+
+</resources>

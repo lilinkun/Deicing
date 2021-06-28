@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#1B55E2</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="main_color">#1B55E2</color>
+
+
+    <color name="bg_home_text">#525366</color>
+
+    <color name="text_write">#F8F8F8</color>
+
+    <color name="text_me_black">#242B3A</color>
+
+    <color name="gray_line">#F5F5F5</color>
+
+
+    <color name="blue">#177CFF</color>
+
+
+    <color name="gray_eee">#EEEEEE</color>
+
+
+    <color name="bg_title">#0350A0</color>
+
+    <color name="bg_child_home">#F2F2F2</color>
+
+    <color name="bg_line">#d7d7d7</color>
+
+    <color name="device_red">#D9001B</color>
+
+    <color name="blue_line">#004ea1</color>
+
+    <color name="gray_333">#333333</color>
+
+    <color name="blue_setting">#169bd5</color>
+
+    <color name="blue_vcode">#0000FF</color>
+
+
+    <color name="bg_gray">#f5f6f7</color>
+
+    <color name="text_black">#0D1726</color>
+
+    <color name="text_gray">#8D949E</color>
+
+    <color name="text_personal_white">#575D6C</color>
+
+    <color name="text_yellow">#FA8C16</color>
+
+    <color name="blue_map">#021332</color>
+
+    <color name="freeze_blue">#30A7FF</color>
+    <color name="freeze_yellow">#E6DF35</color>
+    <color name="freeze_orange">#E08239</color>
+    <color name="freeze_red">#FF2F2F</color>
+    <color name="freeze_white">#FFFFFF</color>
+    <color name="freeze_black">#0D1726</color>
+
+    <color name="freeze_line">#E0E1E6</color>
+
+</resources>

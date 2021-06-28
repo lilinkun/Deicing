@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">智能抗冰</string>
+
+    <string name="home">控制</string>
+    <string name="mine">我的</string>
+
+    <string name="status_monitor">状态检测</string>
+    <string name="device_contral">设备控制</string>
+    <string name="device_monitor">设备监控</string>
+    <string name="device_monitor_tip">设备监控 ></string>
+
+
+    <string name="title_bind_phone">绑定手机号</string>
+    <string name="title_bind_email">绑定邮箱</string>
+
+    <string name="road_id">道路编号</string>
+    <string name="road_section">路段</string>
+    <string name="road_mileage">桩号</string>
+
+    <string name="my_info">个人信息</string>
+    <string name="my_change_psd">修改密码</string>
+    <string name="my_about">关于我们</string>
+
+    <string name="save">保存</string>
+
+    <string name="input_answer">请输入答案</string>
+    <string name="input_account">请输入账号</string>
+    <string name="input_password">请输入密码</string>
+
+    <string name="psd_old">旧密码</string>
+    <string name="psd_new">新密码</string>
+    <string name="psd_sure_new">确认密码</string>
+
+    <string name="online">在线</string>
+    <string name="offline">离线</string>
+
+    <string name="alert_blue">蓝色预警</string>
+    <string name="alert_yellow">黄色预警</string>
+    <string name="alert_orange">橙色预警</string>
+    <string name="alert_red">红色预警</string>
+    <string name="alert_white">白色预警</string>
+    <string name="alert_black">已结冰</string>
+
+    <string name="device_id_tip">设备ID：</string>
+    <string name="highway_tip">路段：</string>
+
+    <string name="switch_device">开关</string>
+    <string name="booster_pump">增压泵</string>
+
+    <string name="all">全部</string>
+    <string name="choose_road">请先选择路段</string>
+
+    <string name="about">\t\t\t\t湖南省交通科学研究院有限公司（简称“湘交科”）属于国有企业，成立于2001年03月，注册资本32000万元，
+        是一家以智慧交通建设、交通信息技术及交通产品研发与推广、交通生态环保等为一体的综合性交通科研单位。\n
+        \t\t\t\t为加快推进公司转型和高质量发展，公司积极开展新一代信息技术业务部署，加强对新兴科技的运用，
+        加强创新和研发投入，在原有机电与交安施工业务的基础上，将智慧交通作为公司发展重中之重的战略新兴产业、主业核心板块及重点培育板块，
+        并设立了院内部立项专项科研资金，预计投入超过1亿3千万元用于“省域交通运输大数据平台”等多项智慧交通重点研发项目建设。</string>
+
+</resources>

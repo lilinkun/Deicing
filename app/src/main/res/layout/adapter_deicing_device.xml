@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adapter_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+    <TextView
+        android:id="@+id/tv_highways"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        android:textColor="@color/text_black"
+        />
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_highways"
+        android:src="@drawable/ic_location"
+        android:layout_marginStart="10dp"
+        />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/bg_line"
+        app:layout_constraintStart_toStartOf="@+id/tv_highways"
+        app:layout_constraintTop_toBottomOf="@+id/tv_highways"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/view_line"
+        app:layout_constraintTop_toBottomOf="@+id/view_line"
+        android:layout_marginTop="10dp"
+        android:text="设备类型"
+        android:textColor="@color/text_gray"
+        />
+
+    <TextView
+        android:id="@+id/tv_type_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_type"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_type"
+        android:textColor="@color/text_black"
+        android:layout_marginEnd="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_device_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        android:text="设备ID"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_device_id_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tv_device_monitor"
+        app:layout_constraintTop_toTopOf="@+id/tv_device_id"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_device_id"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/text_black"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_device_monitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_device_id"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_device_id"
+        android:text="@string/device_monitor_tip"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/main_color"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_work_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_device_id"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        android:text="工作状态"
+        />
+
+
+
+        <TextView
+            android:id="@+id/tv_work_status_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_work_status"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_work_status"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/text_black"
+            />
+
+    <TextView
+        android:id="@+id/tv_work_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_work_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_status"
+        android:layout_marginTop="5dp"
+        android:text="工作模式"
+        android:textColor="@color/text_gray"
+        />
+
+
+
+        <TextView
+            android:id="@+id/tv_work_mode_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_work_mode"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_work_mode"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/text_black"
+            />
+
+
+    <TextView
+        android:id="@+id/tv_last_operate_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_work_mode"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_mode"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        />
+
+
+        <TextView
+            android:id="@+id/tv_last_operate_time_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_last_operate_time"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_last_operate_time"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/text_black"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_offline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/adapter_main"
+        android:layout_marginEnd="10dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
