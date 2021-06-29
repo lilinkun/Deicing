@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.communication.deicing.R;
 import com.communication.deicing.adapter.PageAdapter;
@@ -183,5 +184,18 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     public void getDataFail(String msg) {
         UToastUtil.show(this, msg);
     }
+
+    private long exitTime;
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - exitTime < 2000) {
+            super.onBackPressed();
+        } else {
+            exitTime = System.currentTimeMillis();
+            Toast.makeText(this, getString(R.string.exit_prompt), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }

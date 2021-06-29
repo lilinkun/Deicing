@@ -2,6 +2,7 @@ package com.communication.deicing.base;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.communication.deicing.callback.RequestCallback;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
+import com.zyao89.view.zloading.ZLoadingDialog;
+import com.zyao89.view.zloading.Z_TYPE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,8 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     Unbinder unbinder = null;
 
     protected T mPresenter;
+
+    public ZLoadingDialog zLoadingDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -93,5 +98,20 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     @Override
     public void loading(boolean b) {
 
+        if (b) {
+            if (zLoadingDialog == null) {
+                zLoadingDialog = new ZLoadingDialog(this);
+                zLoadingDialog.setLoadingBuilder(Z_TYPE.STAR_LOADING)
+                        .setLoadingColor(Color.RED)
+                        .setCancelable(false)
+                        .setCanceledOnTouchOutside(false)
+                        .setHintText("Loading");
+            }
+            zLoadingDialog.show();
+        } else {
+            if (zLoadingDialog != null) {
+                zLoadingDialog.dismiss();
+            }
+        }
     }
 }

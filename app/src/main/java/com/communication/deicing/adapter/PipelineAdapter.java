@@ -26,6 +26,6 @@ public class PipelineAdapter extends BaseQuickAdapter<String, BaseViewHolder>{
     protected void convert(@NotNull BaseViewHolder baseViewHolder, String s) {
         baseViewHolder.setText(R.id.tv_pipeline_name,"支管网" + (baseViewHolder.getAdapterPosition()+1) + "压力值");
 
-        baseViewHolder.setText(R.id.tv_pipeline_value,s);
+        baseViewHolder.setText(R.id.tv_pipeline_value,s+"mPa");
     }
 }

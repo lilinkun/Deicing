@@ -1,6 +1,7 @@
 package com.communication.deicing.base;
 
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +10,33 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.communication.deicing.callback.RequestCallback;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
+import com.zyao89.view.zloading.ZLoadingDialog;
+import com.zyao89.view.zloading.Z_TYPE;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragment{
+public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragment implements RequestCallback {
 
     public Unbinder unbinder;
 
     protected T mPresenter;
 
+    public ZLoadingDialog zLoadingDialog;
+
+
+    @Override
+    public void onSuccess(Response response) {
+
+    }
+
+    @Override
+    public void onFail(String msg) {
+
+    }
 
     @Nullable
     @Override
@@ -48,10 +65,28 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         OkGo.getInstance().cancelTag(this);
     }
 
-
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
+    @Override
+    public void loading(boolean b) {
+        if (b) {
+            if (zLoadingDialog == null) {
+                zLoadingDialog = new ZLoadingDialog(getActivity());
+                zLoadingDialog.setLoadingBuilder(Z_TYPE.STAR_LOADING)
+                        .setLoadingColor(Color.RED)
+                        .setCancelable(false)
+                        .setCanceledOnTouchOutside(false)
+                        .setHintText("Loading");
+            }
+            zLoadingDialog.show();
+        } else {
+            if (zLoadingDialog != null) {
+                zLoadingDialog.dismiss();
+            }
+        }
     }
+
+    /*public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+    }*/
 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

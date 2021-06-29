@@ -61,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginEnd="10dp"
+                    android:text="-"
                     />
 
 
@@ -86,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginEnd="10dp"
+                    android:text="-"
                     />
 
 
@@ -122,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginEnd="10dp"
+                    android:text="-"
                     />
 
 
@@ -147,6 +150,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginEnd="10dp"
+                    android:text="-"
                     />
 
 
@@ -183,6 +187,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginEnd="10dp"
+                    android:text="-"
                     />
 
 
@@ -208,6 +213,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginEnd="10dp"
+                    android:text="-"
                     />
 
 
@@ -249,7 +255,7 @@
                     android:id="@+id/tv_liquid_tank_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="储液罐液位"
+                    android:text="@string/liquid_tank_level"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="15dp"
@@ -373,7 +379,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="总功率："
+                        android:text="@string/total_power"
                         />
 
                     <TextView
@@ -396,7 +402,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="单元发热区功率："
+                        android:text="@string/heat_power"
                         />
 
                     <TextView

@@ -148,6 +148,10 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             deicingDeviceAdapter.getLoadMoreModule().loadMoreComplete();
         }
 
+        if (refresh != null && refresh.isRefreshing()){
+            refresh.setRefreshing(false);
+        }
+
     }
 
     @Override
@@ -158,6 +162,11 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             intent.setClass(getActivity(), LoginActivity.class);
             startActivity(intent);
             getActivity().finish();
+        }
+
+
+        if (refresh != null && refresh.isRefreshing()){
+            refresh.setRefreshing(false);
         }
     }
 

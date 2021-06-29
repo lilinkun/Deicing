@@ -46,98 +46,57 @@
         android:background="@color/white"
         >
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/tv_road_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            >
-        <TextView
-            android:id="@+id/tv_road_id"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:text="@string/road_id"
             android:textColor="@color/bg_home_text"
             android:gravity="center"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
+            android:drawablePadding="10dp"
             android:lines="1"
             android:ellipsize="end"
-            />
-
-            <ImageView
-                android:id="@+id/iv_road_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_pull_down"
-                android:layout_toEndOf="@+id/tv_road_id"
-                android:layout_marginStart="10dp"
-                />
-
-        </RelativeLayout>
+            app:drawableEndCompat="@drawable/ic_pull_down" />
 
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+
 
         <TextView
             android:id="@+id/tv_road_section"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_centerInParent="true"
             android:text="@string/road_section"
             android:gravity="center"
             android:textColor="@color/bg_home_text"
             android:lines="1"
             android:ellipsize="end"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
+            app:drawableEndCompat="@drawable/ic_pull_down"
             />
 
-            <ImageView
-                android:id="@+id/iv_road_section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_pull_down"
-                android:layout_toEndOf="@+id/tv_road_section"
-                android:layout_marginStart="10dp"
-                />
-
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
 
         <TextView
             android:id="@+id/tv_road_mileage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="@string/road_mileage"
             android:layout_centerInParent="true"
             android:textColor="@color/bg_home_text"
             android:lines="1"
+            android:gravity="center"
             android:ellipsize="end"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
+            app:drawableEndCompat="@drawable/ic_pull_down"
             />
-
-
-            <ImageView
-                android:id="@+id/iv_road_mileage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_pull_down"
-                android:layout_toEndOf="@+id/tv_road_mileage"
-                android:layout_marginStart="10dp"
-                />
-
-
-        </RelativeLayout>
 
 
 

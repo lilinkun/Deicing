@@ -113,17 +113,17 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
 
     @Override
     public void getDataSuccess(MonitorEntity monitorEntity) {
-        tvRoadTemp.setText(String.valueOf(monitorEntity.getPavement_data().getRoadTemperature()));
-        tvHumidity.setText(String.valueOf(monitorEntity.getWeather_data().getHumidity()));
-        tvWindSpeed.setText(String.valueOf(monitorEntity.getWeather_data().getWindForce()));
-        tvWindDirection.setText(String.valueOf(monitorEntity.getWeather_data().getWindDirection()));
-        tvFreezingTemp.setText(String.valueOf(monitorEntity.getPavement_data().getIcePoint()));
+        tvRoadTemp.setText(monitorEntity.getPavement_data().getRoadTemperature() +"℃");
+        tvHumidity.setText(String.valueOf(monitorEntity.getWeather_data().getHumidity()) +"%");
+        tvWindSpeed.setText(String.valueOf(monitorEntity.getWeather_data().getWindForce()) +"m/s");
+        tvWindDirection.setText(String.valueOf(monitorEntity.getWeather_data().getWindDirection())+"°");
+        tvFreezingTemp.setText(String.valueOf(monitorEntity.getPavement_data().getIcePoint())+"℃");
         tvWetCoefficient.setText(monitorEntity.getPavement_data().getSlipperyDegree()+"");
     }
 
     public void setDeviceData(DeicingControlEntity deicingControlEntity){
 
-        tvLiquidTankLevel.setText(deicingControlEntity.getLiquid_tank_level());
+        tvLiquidTankLevel.setText(deicingControlEntity.getLiquid_tank_level()+"mm");
         if (deicingControlEntity.getInflator_state() == 0) {
             tvInflatorState.setText("关闭");
         }else {
@@ -139,9 +139,9 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
         }else {
             tvRadiotubeState.setText("开启");
         }
-        tvHeatingPower.setText(deicingControlEntity.getUnit_heating_zone_power());
-        tvTotalPower.setText(deicingControlEntity.getTotal_power());
-        tvMainPipelineKpa.setText(deicingControlEntity.getMain_pipeline_kpa());
+        tvHeatingPower.setText(deicingControlEntity.getUnit_heating_zone_power() +"kw");
+        tvTotalPower.setText(deicingControlEntity.getTotal_power() + "kw");
+        tvMainPipelineKpa.setText(deicingControlEntity.getMain_pipeline_kpa()+"mPa");
 
         List arrayList = new ArrayList();
 

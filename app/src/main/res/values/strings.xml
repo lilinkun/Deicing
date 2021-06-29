@@ -4,7 +4,7 @@
     <string name="home">控制</string>
     <string name="mine">我的</string>
 
-    <string name="status_monitor">状态检测</string>
+    <string name="status_monitor">状态监测</string>
     <string name="device_contral">设备控制</string>
     <string name="device_monitor">设备监控</string>
     <string name="device_monitor_tip">设备监控 ></string>
@@ -49,6 +49,13 @@
 
     <string name="all">全部</string>
     <string name="choose_road">请先选择路段</string>
+
+    <string name="total_power">总功率</string>
+    <string name="heat_power">单元发热区功率</string>
+
+    <string name="liquid_tank_level">储液罐液位</string>
+
+    <string name="exit_prompt">再按一次返回退出程序</string>
 
     <string name="about">\t\t\t\t湖南省交通科学研究院有限公司（简称“湘交科”）属于国有企业，成立于2001年03月，注册资本32000万元，
         是一家以智慧交通建设、交通信息技术及交通产品研发与推广、交通生态环保等为一体的综合性交通科研单位。\n

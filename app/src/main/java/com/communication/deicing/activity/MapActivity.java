@@ -102,6 +102,7 @@ public class MapActivity extends BaseActivity<MapLocationView, MapPresenter> imp
             tvSystemName.setText(DeicingUtil.getSystemName(deicingDeviceEntity.getDeicing_info().getType()));
         }else {
             mPresenter.getDeviceList(1,100,"","","");
+            loading(true);
         }
 
 
@@ -158,6 +159,7 @@ public class MapActivity extends BaseActivity<MapLocationView, MapPresenter> imp
     @Override
     public void getDeicingDeviceSuccess(DeicingDeviceListEntity<List<DeicingDeviceEntity>> arrayListDeicingDeviceListEntity) {
         deicingDeviceEntities = arrayListDeicingDeviceListEntity.getData();
+        loading(false);
         for (int i = 0; i < deicingDeviceEntities.size(); i++) {
             showMark(deicingDeviceEntities.get(i));
         }
@@ -165,6 +167,7 @@ public class MapActivity extends BaseActivity<MapLocationView, MapPresenter> imp
 
     @Override
     public void getDeicingDeviceFail(String msg) {
+        loading(false);
         UToastUtil.show(this,msg);
     }
 
