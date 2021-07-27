@@ -12,11 +12,13 @@ import com.communication.deicing.R;
 import com.communication.deicing.adapter.PageAdapter;
 import com.communication.deicing.base.BaseActivity;
 import com.communication.deicing.base.BaseFragment;
+import com.communication.deicing.callback.JsonCallback;
 import com.communication.deicing.entity.TabEntity;
 import com.communication.deicing.entity.UpdateBean;
 import com.communication.deicing.entity.UpdateVersionBean;
 import com.communication.deicing.fragment.HomeFragment;
 import com.communication.deicing.fragment.MeFragment;
+import com.communication.deicing.http.DeicingService;
 import com.communication.deicing.presenter.MainPresenter;
 import com.communication.deicing.service.UpdateService;
 import com.communication.deicing.util.ActivityUtil;
@@ -27,6 +29,8 @@ import com.communication.deicing.view.MainView;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
 
 import java.util.ArrayList;
 
@@ -70,6 +74,10 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         bindTab();
 
 //        mPresenter.checkVersionUpdate();
+//        mPresenter.checkUpdate();
+        OkGo.get(DeicingService.UPDATEURL)
+                .params("_api_key", DeicingService.APIKEY)
+                .params("appKey", DeicingService.APPKEY).execute(new JsonCallback(UpdateBean.class, this));
 
     }
 
@@ -150,7 +158,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     @Override
     public void getUpdateDataSuccess(UpdateBean updateBean) {
-        if (updateBean.buildVersion > Double.valueOf(SystemUtil.getVersionName(this))) {
+        if (updateBean.data.buildVersionNo > Double.valueOf(SystemUtil.getVersionCode(this))) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this).setMessage("请升级更新app").setPositiveButton("确定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -159,7 +167,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
                     deleteApkFile();
                     downloadApkFile(dialog);*/
 
-                    UpdateService.startAction(MainActivity.this, updateBean.downloadURL, updateBean.buildName);
+                    UpdateService.startAction(MainActivity.this, updateBean.data.downloadURL, updateBean.data.buildName);
 
                 }
             }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -183,6 +191,20 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     @Override
     public void getDataFail(String msg) {
         UToastUtil.show(this, msg);
+        DeicingUtil.otherLogin(this,msg);
+    }
+
+    @Override
+    public void onSuccess(Response response) {
+        if (response.body() instanceof UpdateBean){
+            UpdateBean updateBean = (UpdateBean) response.body();
+            getUpdateDataSuccess(updateBean);
+        }
+    }
+
+    @Override
+    public void onFail(String str) {
+        UToastUtil.show(this, str);
     }
 
     private long exitTime;

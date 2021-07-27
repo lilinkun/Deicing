@@ -18,6 +18,7 @@ import com.communication.deicing.entity.DeicingControlEntity;
 import com.communication.deicing.entity.MonitorDataEntity;
 import com.communication.deicing.entity.MonitorEntity;
 import com.communication.deicing.presenter.StatusMonitorPresenter;
+import com.communication.deicing.util.DeicingUtil;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.StatusMonitorView;
 import com.communication.deicing.widget.FullyLinearLayoutManager;
@@ -139,7 +140,13 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
         }else {
             tvRadiotubeState.setText("开启");
         }
-        tvHeatingPower.setText(deicingControlEntity.getUnit_heating_zone_power() +"kw");
+
+        if(deviceName.equals("超薄导电磨耗层抗冰系统")){
+            tvHeatingPower.setText(deicingControlEntity.getUnit_heating_zone_power() +"w/㎡");
+        }else if (deviceName.equals("发热电缆抗冰系统")){
+            tvHeatingPower.setText(deicingControlEntity.getUnit_heating_zone_power() +"w/m");
+        }
+
         tvTotalPower.setText(deicingControlEntity.getTotal_power() + "kw");
         tvMainPipelineKpa.setText(deicingControlEntity.getMain_pipeline_kpa()+"mPa");
 
@@ -160,5 +167,6 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
     @Override
     public void getDataFail(String msg) {
         UToastUtil.show(getActivity(),msg);
+        DeicingUtil.otherLogin(getActivity(),msg);
     }
 }

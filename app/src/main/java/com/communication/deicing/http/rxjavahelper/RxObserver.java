@@ -8,7 +8,7 @@ import io.reactivex.disposables.Disposable;
  * user：lqm
  * desc：自己的Observer，减少实现不必要的回调
  */
-public abstract class RxObserver<T>  implements Observer<T> {
+public abstract class RxObserver<T>  implements Observer<T>{
 
     @Override
     public void onSubscribe(Disposable d){
@@ -21,11 +21,15 @@ public abstract class RxObserver<T>  implements Observer<T> {
     }
     @Override
     public void onError(Throwable e) {
+
         if (!e.getMessage().contains("Failed to connect to")) {
             _onError(e.getMessage());
         }else {
             _onError("连接服务器异常");
         }
+
+
+
 
     }
     @Override

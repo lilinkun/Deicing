@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by LG
  * on 2021/6/17  16:54
- * Description：
+ * Description：设备控制的presenter
  */
 public class DeviceControlPresenter extends BasePresenter<DeviceControlView> {
 

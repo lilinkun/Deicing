@@ -95,7 +95,7 @@ public class LoginActivity extends BaseActivity {
 
         sign = (new Date()).getTime() + "";
 
-        String img_url = DeicingService.PREFIX + "/code?sign=" + sign;
+        String img_url = DeicingService.VCODEIMGURL + sign;
 
         Picasso.get().load(img_url).placeholder(R.color.white).into(ivVerificationCode);
 

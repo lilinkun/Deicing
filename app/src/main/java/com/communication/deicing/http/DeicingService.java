@@ -29,15 +29,21 @@ public class DeicingService {
 
 //    public static final String PREFIX = "http://192.168.1.210:8070";  //凯
 //    public static final String PREFIX = "http://192.168.1.124:8070";  //敏
-    public static final String PREFIX = "http://192.168.1.205:8004";  //文
+//    public static final String PREFIX = "http://192.168.1.205:8004";  //文
+//    public static final String PREFIX = "http://192.168.40.99:8004";  //文
+    public static final String PREFIX = "http://server.kangbing.rd.hnjtcloud.com:8088";  //公网
 //    public static final String PREFIX = "http://192.168.40.86:8096";
     public static String EXITVENUEORDER = PREFIX + "/life-service/serviceVenueOrder/modifyOrderStatus";
 
+    public static String APIKEY = "ea6f638543a55aaef96b9abb39ab1c2e";
+    public static String APPKEY = "361237400331a106a3135a18edfc7ff5";
 
     public static String UPDATEURL = "https://www.pgyer.com/apiv2/app/check";
 
 //    public static String UPDATEVERSIONURL = "http://192.168.56.1:8080/liguo/liguo.html";
     public static String UPDATEVERSIONURL = PREFIX + "/prod-api/app/version/check";
+
+    public static String  VCODEIMGURL = DeicingService.PREFIX + "/code?sign=";
 
     /**
      * 设备列表
@@ -98,6 +104,8 @@ public class DeicingService {
     public static String CHANGEPASSWORD = PREFIX + "/account/pwd";
 
 
+
+
     /**
      * 更新apk
      */
@@ -105,7 +113,7 @@ public class DeicingService {
 
         return OkGo.<ResponseData<UpdateBean>>get(UPDATEURL)
                 .params("_api_key", "ea6f638543a55aaef96b9abb39ab1c2e")
-                .params("appKey", "d2db71f43bb6e9424a3cf3ac81a50dc6")
+                .params("appKey", "361237400331a106a3135a18edfc7ff5")
                 .converter(new JsonConvert<ResponseData<UpdateBean>>() {
                 })
                 .adapt(new ObservableBody<ResponseData<UpdateBean>>());

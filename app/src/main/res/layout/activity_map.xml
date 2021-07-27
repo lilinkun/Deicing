@@ -127,12 +127,12 @@
             android:layout_height="1dp"
             app:layout_constraintTop_toBottomOf="@+id/iv_map_offline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tv_alert_blue"
+            app:layout_constraintEnd_toEndOf="@+id/tv_alert_yellow"
             android:layout_marginTop="10dp"
             android:background="@color/freeze_line"
             />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/iv_freeze_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
             android:textColor="@color/white"
             android:textSize="10sp"
             android:layout_marginStart="10dp"
-            />
+            />-->
 
 
         <ImageView
@@ -163,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_freeze"
-            app:layout_constraintTop_toBottomOf="@+id/iv_freeze_blue"
+            app:layout_constraintTop_toBottomOf="@+id/view_line"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/freeze_yellow"

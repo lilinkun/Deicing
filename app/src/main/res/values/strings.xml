@@ -23,7 +23,7 @@
 
     <string name="save">保存</string>
 
-    <string name="input_answer">请输入答案</string>
+    <string name="input_answer">请输入验证码</string>
     <string name="input_account">请输入账号</string>
     <string name="input_password">请输入密码</string>
 
@@ -54,6 +54,12 @@
     <string name="heat_power">单元发热区功率</string>
 
     <string name="liquid_tank_level">储液罐液位</string>
+
+    <string name="input_bind_phone">请输入需要绑定的手机</string>
+    <string name="input_phone">请输入正确的手机号码</string>
+
+    <string name="input_bind_phone_success">绑定手机成功</string>
+    <string name="send_success">发送成功</string>
 
     <string name="exit_prompt">再按一次返回退出程序</string>
 

@@ -33,7 +33,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/17  11:17
- * Description：
+ * Description：设备监控
  */
 public class MonitorActivity extends BaseActivity<MonitorView, MonitorPresenter> implements MonitorView, DeviceControlFragment.DeviceInfoLisener {
 
@@ -140,6 +140,7 @@ public class MonitorActivity extends BaseActivity<MonitorView, MonitorPresenter>
     public void onClick(View view){
         switch (view.getId()){
             case R.id.ll_back:
+                setResult(RESULT_OK);
                 finish();
                 break;
 
@@ -147,6 +148,12 @@ public class MonitorActivity extends BaseActivity<MonitorView, MonitorPresenter>
 
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_OK);
+        super.onBackPressed();
     }
 
     @Override
@@ -158,6 +165,7 @@ public class MonitorActivity extends BaseActivity<MonitorView, MonitorPresenter>
     @Override
     public void getDeviceControlInfoFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 
     @Override

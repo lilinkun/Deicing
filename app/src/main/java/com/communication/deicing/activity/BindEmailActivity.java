@@ -22,7 +22,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/18  14:15
- * Description：
+ * Description：绑定邮箱
  */
 public class BindEmailActivity extends BaseActivity<BindEmailView, BindEmailPresenter> implements BindEmailView {
 
@@ -96,6 +96,7 @@ public class BindEmailActivity extends BaseActivity<BindEmailView, BindEmailPres
     @Override
     public void sendVcodeFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 
     @Override
@@ -108,5 +109,6 @@ public class BindEmailActivity extends BaseActivity<BindEmailView, BindEmailPres
     @Override
     public void bindEmailFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 }

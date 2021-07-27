@@ -9,9 +9,17 @@ import java.io.Serializable;
  *  */
 public class UpdateBean implements Serializable {
 
-    public double buildVersion;
-    public String downloadURL;
-    public String buildName;
-    public int buildFileSize;
+    public int code;
+    public String message;
+    public Data data;
+
+    public class Data implements Serializable{
+        public double buildVersion;
+        public int buildVersionNo;
+        public String downloadURL;
+        public String buildName;
+        public int buildFileSize;
+
+    }
 
 }

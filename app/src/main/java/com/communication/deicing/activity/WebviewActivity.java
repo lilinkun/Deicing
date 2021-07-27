@@ -3,23 +3,32 @@ package com.communication.deicing.activity;
 import android.util.Log;
 import android.view.View;
 import android.webkit.CookieManager;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.communication.deicing.R;
 import com.communication.deicing.base.BaseActivity;
 import com.communication.deicing.base.BasePresenter;
 import com.communication.deicing.util.AndroidJavascriptInterface;
+import com.squareup.picasso.Picasso;
+
+import butterknife.BindView;
 
 
 /**
  * webview
  */
 public class WebviewActivity extends BaseActivity {
-    private WebView webView;
+
+    @BindView(R.id.iv_show_pic)
+    ImageView ivShowPic;
+    @BindView(R.id.wv)
+    WebView webView;
 
 
     @Override
@@ -30,35 +39,54 @@ public class WebviewActivity extends BaseActivity {
     @Override
     public void initView() {
 
-        String url = "http://www.baidu.com";
+//        String url = "http://www.baidu.com";
+        String url = "http://192.168.1.236:8080/liguo/02.docx";
+//        String url = "http://192.168.1.236:8080/liguo/05.jpg";
+//        String url = "http://192.168.1.236:8080/liguo/51.pdf";
 
-        Log.i("OkGo", "" + url);
-        CookieManager cookieManager = CookieManager.getInstance();
-        cookieManager.removeSessionCookies(null);
-        cookieManager.flush();
-        cookieManager.setAcceptCookie(true);
-        cookieManager.setCookie(url, "");
+        if (url.endsWith(".jpg") || url.endsWith(".png") || url.endsWith(".doc") || url.endsWith(".pdf")) {
+//            ivShowPic.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+            Picasso.get().load(url).into(ivShowPic);
+        }else{
 
-        webView = findViewById(R.id.wv);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webView.addJavascriptInterface(new AndroidJavascriptInterface(this), "Android");
-        webView.setWebViewClient(new WebViewClient(){
+            Log.i("OkGo", "" + url);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.removeSessionCookies(null);
+            cookieManager.flush();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie(url, "");
 
-            @Override
-            public void onLoadResource(WebView view, String url) {
-                super.onLoadResource(view, url);
-            }
+            WebSettings webSettings = webView.getSettings();
+            webSettings.setJavaScriptEnabled(true);
+            webSettings.setAllowFileAccess(true);
+            webSettings.setLoadWithOverviewMode(true);
+            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+            webSettings.setSupportZoom(true); // 可以缩放
+            webSettings.setBuiltInZoomControls(true); // 显示放大缩小
+            webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+            webView.addJavascriptInterface(new AndroidJavascriptInterface(this), "Android");
+            webView.setWebViewClient(new WebViewClient() {
 
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                super.onReceivedError(view, request, error);
-                view.setVisibility(View.GONE);
-                finish();
-            }
-        });
-        webView.loadUrl(url);
+                @Override
+                public void onLoadResource(WebView view, String url) {
+                    super.onLoadResource(view, url);
+                }
+
+                @Override
+                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                    super.onReceivedError(view, request, error);
+                    view.setVisibility(View.GONE);
+                    finish();
+                }
+            });
+            webView.setWebChromeClient(new WebChromeClient() {
+                @Override
+                public void onProgressChanged(WebView view, int newProgress) {
+
+                }
+            });
+            webView.loadUrl(url);
+        }
 
     }
 

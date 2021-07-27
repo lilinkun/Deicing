@@ -49,7 +49,7 @@ public class UpdateService extends Service {
         down.setMimeType(mimeString);
         down.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
         down.setVisibleInDownloadsUi(true);
-        down.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"/pujing/pujing.apk");
+        down.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"/deicing/deicing.apk");
         down.setTitle(apkName);
         manager.enqueue(down);
         registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
@@ -65,7 +65,7 @@ public class UpdateService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         url = intent.getStringExtra(DOWNLOAD_URL);
         apkName = intent.getStringExtra(APK_NAME);
-        String path = Environment.DIRECTORY_DOWNLOADS + "/pujing/pujing.apk";
+        String path = Environment.DIRECTORY_DOWNLOADS + "/deicing/deicing.apk";
         File file = new File(path);
         if (file.exists()) {
             boolean deleteResult = deleteFileWithPath(path);

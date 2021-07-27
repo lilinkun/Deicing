@@ -11,6 +11,7 @@ import com.communication.deicing.base.BasePresenter;
 import com.communication.deicing.presenter.ChangePasswordPresenter;
 import com.communication.deicing.util.ActivityUtil;
 import com.communication.deicing.util.ConstantsUtil;
+import com.communication.deicing.util.DeicingUtil;
 import com.communication.deicing.util.MethodsUtil;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.ChangePasswordView;
@@ -21,7 +22,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/23  15:09
- * Description：
+ * Description：修改密码
  */
 public class ChangePasswordActivity extends BaseActivity<ChangePasswordView, ChangePasswordPresenter> implements ChangePasswordView{
 
@@ -62,6 +63,7 @@ public class ChangePasswordActivity extends BaseActivity<ChangePasswordView, Cha
     @Override
     public void changePasswordFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 
     @OnClick({R.id.tv_modify_save,R.id.ll_back})

@@ -19,7 +19,9 @@ import com.communication.deicing.base.BasePresenter;
 import com.communication.deicing.entity.AccountEntity;
 import com.communication.deicing.presenter.MePresenter;
 import com.communication.deicing.util.ConstantsUtil;
+import com.communication.deicing.util.DeicingUtil;
 import com.communication.deicing.util.MethodsUtil;
+import com.communication.deicing.util.SystemUtil;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.MeView;
 
@@ -29,7 +31,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/10
- * Description：
+ * Description：我的
  */
 public class MeFragment extends BaseFragment<MeView, MePresenter> implements MeView{
 
@@ -39,6 +41,8 @@ public class MeFragment extends BaseFragment<MeView, MePresenter> implements MeV
     TextView tvCompany;
     @BindView(R.id.tv_personal)
     TextView tvPersonal;
+    @BindView(R.id.tv_app_version)
+    TextView tvAppVersion;
 
     private AccountEntity accountEntity;
     private final int PERSONFORRESULT = 0x212;
@@ -52,6 +56,8 @@ public class MeFragment extends BaseFragment<MeView, MePresenter> implements MeV
     public void initEventAndData() {
 
         mPresenter.getPersonalInfo();
+
+        tvAppVersion.setText("v" + SystemUtil.getVersionName(getActivity()));
 
     }
 
@@ -127,6 +133,7 @@ public class MeFragment extends BaseFragment<MeView, MePresenter> implements MeV
     @Override
     public void getPersonalInfoFail(String msg) {
         UToastUtil.show(getActivity(),msg);
+        DeicingUtil.otherLogin(getActivity(),msg);
     }
 
     @Override

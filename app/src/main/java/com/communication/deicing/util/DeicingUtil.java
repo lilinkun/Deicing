@@ -1,6 +1,7 @@
 package com.communication.deicing.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -8,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.communication.deicing.activity.LoginActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,7 +44,7 @@ public class DeicingUtil {
     public static boolean isMobileNO(String mobiles) {
 
         Pattern p = Pattern
-                .compile("^(0|86|17951)?(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[0-9])[0-9]{8}$");
+                .compile("^(0|86|17951)?(13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9]|14[0-9])[0-9]{8}$");
 
         Matcher m = p.matcher(mobiles);
 
@@ -58,6 +61,17 @@ public class DeicingUtil {
             return "超薄导电磨耗层抗冰系统";
         }
         return null;
+    }
+
+
+    public static void otherLogin(Context context,String msg){
+        if (msg.contains("您的账号已在其他客户端登录")){
+            MethodsUtil.saveKeyValue(ConstantsUtil.AUTHORIZATION, "", context);
+            Intent intent = new Intent(context, LoginActivity.class);
+            intent.putExtra(ConstantsUtil.ACCOUNT,MethodsUtil.getValueByKey(ConstantsUtil.ACCOUNT,context));
+            context.startActivity(intent);
+            ActivityUtil.finishAll();
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.communication.deicing.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
@@ -39,6 +40,7 @@ import com.communication.deicing.base.BasePresenter;
 import com.communication.deicing.entity.DeicingDeviceEntity;
 import com.communication.deicing.entity.DeicingDeviceListEntity;
 import com.communication.deicing.presenter.HomePresenter;
+import com.communication.deicing.util.ConstantsUtil;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.HomeView;
 
@@ -55,7 +57,7 @@ import io.reactivex.internal.util.ArrayListSupplier;
 /**
  * Created by LG
  * on 2021/6/10
- * Description：
+ * Description：首页
  */
 public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implements HomeView{
 
@@ -86,7 +88,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
 
         mPresenter.getDeviceList(pageIndex,pageSize,highWaysSn,highWays,highWaysLength);
 
-        deicingDeviceAdapter = new DeicingDeviceAdapter(R.layout.adapter_deicing_device,null);
+        deicingDeviceAdapter = new DeicingDeviceAdapter(R.layout.adapter_deicing_device,null,this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
 
@@ -243,7 +245,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
 
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), MapActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,ConstantsUtil.UPDATEDATE);
 
 
                 break;
@@ -339,6 +341,13 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             }
         });
 
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ConstantsUtil.UPDATEDATE && resultCode == Activity.RESULT_OK){
+            mPresenter.getDeviceList(pageIndex,pageSize,highWaysSn,highWays,highWaysLength);
+        }
     }
 }

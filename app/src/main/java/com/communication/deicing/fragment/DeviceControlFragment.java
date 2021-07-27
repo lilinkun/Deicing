@@ -1,30 +1,19 @@
 package com.communication.deicing.fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.communication.deicing.R;
 import com.communication.deicing.base.BaseFragment;
-import com.communication.deicing.base.BasePresenter;
 import com.communication.deicing.entity.DeicingControlEntity;
 import com.communication.deicing.presenter.DeviceControlPresenter;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.DeviceControlView;
 import com.communication.deicing.widget.CommonPopup;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,7 +24,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/17  11:25
- * Description：
+ * Description：设备控制
  */
 public class DeviceControlFragment extends BaseFragment<DeviceControlView, DeviceControlPresenter> implements DeviceControlView, CommonPopup.PopupClickListener {
 
@@ -69,7 +58,7 @@ public class DeviceControlFragment extends BaseFragment<DeviceControlView, Devic
     // 设备序列号
     private String sn;
     // 喷淋间隔时间 秒
-    private String spray_interval_time;
+    private String spray_interval_time = "2400";
     // 控制模式 0:全自动 1:半自动
     private String control_mode;
     // 喷淋量 ml
@@ -161,14 +150,14 @@ public class DeviceControlFragment extends BaseFragment<DeviceControlView, Devic
         cbSwitch.setChecked(deicingControlEntity.getWork_state() == 0 ? false:true);
 
         if (deicingControlEntity.getSpray_interval_time() != 0){
-            spray_interval_time = deicingControlEntity.getSpray_interval_time()/60 + "";
-            if (spray_interval_time.equals("30")){
+            String stime = deicingControlEntity.getSpray_interval_time()/60 + "";
+            if (stime.equals("30")){
                 tvSprayIntervaValue.setText(pipelineStrs.get(0));
-            }else if (spray_interval_time.equals("40")){
+            }else if (stime.equals("40")){
                 tvSprayIntervaValue.setText(pipelineStrs.get(1));
-            }else if (spray_interval_time.equals("50")){
+            }else if (stime.equals("50")){
                 tvSprayIntervaValue.setText(pipelineStrs.get(2));
-            }else if (spray_interval_time.equals("60")){
+            }else if (stime.equals("60")){
                 tvSprayIntervaValue.setText(pipelineStrs.get(3));
             }
         }
@@ -190,7 +179,12 @@ public class DeviceControlFragment extends BaseFragment<DeviceControlView, Devic
     }
 
     private void changeControlInfo(){
+//        spray_interval_time = Integer.valueOf(tvSprayIntervaValue.getText().toString().substring(0,2)) * 60 + "";
         mPresenter.changeDeviceControl(sn,spray_interval_time,control_mode,spray_capacity,inflator_state,radiotube_state,work_state,warm_gears);
+    }
+
+    private void changeModeControlInfo(){
+        mPresenter.changeDeviceControl(sn,spray_interval_time,control_mode,spray_capacity,inflator_state,radiotube_state,"-1",warm_gears);
     }
 
     @Override
@@ -273,7 +267,15 @@ public class DeviceControlFragment extends BaseFragment<DeviceControlView, Devic
             spray_capacity = sprayCapacityStr.get(position).substring(0,sprayCapacityStr.get(position).indexOf("m³"));
             tvSprayCapacityValue.setText(sprayCapacityStr.get(position));
         }
-        changeControlInfo();
+        if (type == 5 ) {
+            changeModeControlInfo();
+        }else if(type == 6){
+            if (work_state.equals("1")) {
+                changeModeControlInfo();
+            }
+        }else {
+            changeControlInfo();
+        }
     }
 
 

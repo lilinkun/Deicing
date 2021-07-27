@@ -1,5 +1,6 @@
 package com.communication.deicing.callback;
 
+import com.communication.deicing.entity.UpdateBean;
 import com.communication.deicing.entity.VerificationCodeEntity;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
@@ -46,10 +47,10 @@ public class JsonCallback<T> extends AbsCallback {
             JsonReader jsonReader = new JsonReader(responseBody.charStream());
             Gson gson = new Gson();
             T t = gson.fromJson(jsonReader, clazz);
-            VerificationCodeEntity base = (VerificationCodeEntity) t;
+            UpdateBean base = (UpdateBean) t;
 
-            /*if (base != null) {
-                if (base.getCode() == 200) {
+            if (base != null) {
+                if (base.code == 0) {
                     return t;
                 } else{
                     if (requestCallback != null) {
@@ -58,13 +59,13 @@ public class JsonCallback<T> extends AbsCallback {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                requestCallback.onFail(base.getMsg());
+                                requestCallback.onFail(base.message);
                             }
                         });
 
                     }
                 }
-            }*/
+            }
         }
         return null;
     }

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.module.LoadMoreModule;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
@@ -28,9 +30,11 @@ import java.util.List;
  */
 public class DeicingDeviceAdapter extends BaseQuickAdapter<DeicingDeviceEntity, BaseViewHolder>  implements LoadMoreModule {
 
+    Fragment fragment;
 
-    public DeicingDeviceAdapter(int layoutResId, List<DeicingDeviceEntity> deicingDeviceEntities) {
+    public DeicingDeviceAdapter(int layoutResId, List<DeicingDeviceEntity> deicingDeviceEntities, Fragment fragment) {
         super(layoutResId,deicingDeviceEntities);
+        this.fragment = fragment;
     }
 
     @Override
@@ -88,7 +92,7 @@ public class DeicingDeviceAdapter extends BaseQuickAdapter<DeicingDeviceEntity, 
                 bundle.putSerializable(ConstantsUtil.DEVICE,deicingDeviceEntity);
                 intent.putExtra(ConstantsUtil.DEICING,bundle);
 
-                getContext().startActivity(intent);
+                fragment.startActivityForResult(intent,ConstantsUtil.UPDATEDATE);
             }
         });
 
@@ -104,13 +108,11 @@ public class DeicingDeviceAdapter extends BaseQuickAdapter<DeicingDeviceEntity, 
 
                 intent.putExtra(ConstantsUtil.MONITOR,bundle);
 
-
                 intent.setClass(getContext(), MonitorActivity.class);
 
-                getContext().startActivity(intent);
+                fragment.startActivityForResult(intent,ConstantsUtil.UPDATEDATE);
             }
         });
-
 
     }
 }

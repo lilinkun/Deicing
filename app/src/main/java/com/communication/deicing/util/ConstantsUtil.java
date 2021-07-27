@@ -20,4 +20,7 @@ public class ConstantsUtil {
     public static final String PHONE = "phone";
     public static final String PERSONAL = "personal";
     public static final String ACCOUNT = "account";
+
+
+    public static final int UPDATEDATE = 0X1212;
 }

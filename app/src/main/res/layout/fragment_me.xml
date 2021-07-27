@@ -118,6 +118,19 @@
 
 
     <TextView
+        android:id="@+id/tv_app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_about"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_about"
+        android:text="v1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:textSize="16sp"
+        />
+
+
+    <TextView
         android:id="@+id/tv_exit_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

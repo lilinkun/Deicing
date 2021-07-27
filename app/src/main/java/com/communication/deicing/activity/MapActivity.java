@@ -169,6 +169,13 @@ public class MapActivity extends BaseActivity<MapLocationView, MapPresenter> imp
     public void getDeicingDeviceFail(String msg) {
         loading(false);
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_OK);
+        super.onBackPressed();
     }
 
     /**
@@ -226,7 +233,7 @@ public class MapActivity extends BaseActivity<MapLocationView, MapPresenter> imp
                 isFirstLoc = false;
                 LatLng latLng = new LatLng(latitude, longitude);
                 MapStatus.Builder builder = new MapStatus.Builder();
-                builder.target(latLng).zoom(13.0f);
+                builder.target(latLng).zoom(10.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
 
             }
@@ -327,6 +334,9 @@ public class MapActivity extends BaseActivity<MapLocationView, MapPresenter> imp
         if (requestCode == PermissUtil.PERMISSON_REQUESTCODE){
             if (grantResults[0] == PackageManager.PERMISSION_DENIED){
                 finish();
+            }else {
+                // 定位初始化
+                initLocation();
             }
         }
     }

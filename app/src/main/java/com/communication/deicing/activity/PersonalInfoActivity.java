@@ -17,6 +17,7 @@ import com.communication.deicing.entity.AccountEntity;
 import com.communication.deicing.presenter.PersonalInfoPresenter;
 import com.communication.deicing.util.ActivityUtil;
 import com.communication.deicing.util.ConstantsUtil;
+import com.communication.deicing.util.DeicingUtil;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.PersonalInfoView;
 
@@ -26,7 +27,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/17  16:01
- * Description：
+ * Description：个人信息
  */
 public class PersonalInfoActivity extends BaseActivity<PersonalInfoView, PersonalInfoPresenter> implements PersonalInfoView {
 
@@ -94,6 +95,7 @@ public class PersonalInfoActivity extends BaseActivity<PersonalInfoView, Persona
     @Override
     public void getPersonalInfoFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 
     @Override

@@ -22,7 +22,7 @@ import butterknife.OnClick;
 /**
  * Created by LG
  * on 2021/6/18  9:42
- * Description：
+ * Description：绑定手机
  */
 public class BindPhoneActivity extends BaseActivity<BindPhoneView, BindPhonePresenter> implements BindPhoneView{
 
@@ -60,9 +60,9 @@ public class BindPhoneActivity extends BaseActivity<BindPhoneView, BindPhonePres
             case R.id.tv_get_vcode:
 
                 if (TextUtils.isEmpty(evMobilePhoneValue.getText().toString())){
-                    UToastUtil.show(this,"请输入需要绑定的手机");
+                    UToastUtil.show(this,R.string.input_bind_phone);
                 }else if (!DeicingUtil.isMobileNO(evMobilePhoneValue.getText().toString())){
-                    UToastUtil.show(this,"请输入正确的手机号码");
+                    UToastUtil.show(this,R.string.input_phone);
                 }else {
                     sign = (new Date()).getTime() + "";
                     mPresenter.sendVcode(sign,evMobilePhoneValue.getText().toString());
@@ -85,17 +85,18 @@ public class BindPhoneActivity extends BaseActivity<BindPhoneView, BindPhonePres
 
     @Override
     public void sendVcodeSuccess() {
-        UToastUtil.show(this,"发送成功");
+        UToastUtil.show(this,R.string.send_success);
     }
 
     @Override
     public void sendVcodeFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 
     @Override
     public void bindPhoneSuccess() {
-        UToastUtil.show(this,"绑定手机成功");
+        UToastUtil.show(this,R.string.input_bind_phone_success);
         setResult(RESULT_OK);
         finish();
     }
@@ -103,5 +104,6 @@ public class BindPhoneActivity extends BaseActivity<BindPhoneView, BindPhonePres
     @Override
     public void bindPhoneFail(String msg) {
         UToastUtil.show(this,msg);
+        DeicingUtil.otherLogin(this,msg);
     }
 }

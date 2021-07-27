@@ -32,7 +32,7 @@ public class RxResultHelper {
                             @Override
                             public Observable<T> apply(ResponseData<T> tResponseData) throws Exception {
                                 //可以相应更改
-                                if (tResponseData.getCode() == RESPONSE_SUCCESS_CODE) {
+                                if (tResponseData.getCode() == RESPONSE_SUCCESS_CODE ) {
                                     if (tResponseData.getData() != null) {
                                         return Observable.just(tResponseData.getData());
                                     }else {
