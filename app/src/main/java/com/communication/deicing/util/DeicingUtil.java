@@ -66,6 +66,7 @@ public class DeicingUtil {
 
     public static void otherLogin(Context context,String msg){
         if (msg.contains("您的账号已在其他客户端登录")){
+            UToastUtil.show(context,msg);
             MethodsUtil.saveKeyValue(ConstantsUtil.AUTHORIZATION, "", context);
             Intent intent = new Intent(context, LoginActivity.class);
             intent.putExtra(ConstantsUtil.ACCOUNT,MethodsUtil.getValueByKey(ConstantsUtil.ACCOUNT,context));

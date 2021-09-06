@@ -16,7 +16,6 @@ public class AccountInfoEntity implements Serializable {
     private String name;
     private String company;
     private int id;
-    private String account3party;
     private String job;
     private String account;
     private String email;
@@ -77,13 +76,6 @@ public class AccountInfoEntity implements Serializable {
         this.id = id;
     }
 
-    public String getAccount3party() {
-        return account3party;
-    }
-
-    public void setAccount3party(String account3party) {
-        this.account3party = account3party;
-    }
 
     public String getJob() {
         return job;

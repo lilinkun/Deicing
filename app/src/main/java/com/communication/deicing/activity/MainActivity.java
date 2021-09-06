@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
         bindTab();
 
-//        mPresenter.checkVersionUpdate();
+        mPresenter.checkVersionUpdate();
 //        mPresenter.checkUpdate();
         OkGo.get(DeicingService.UPDATEURL)
                 .params("_api_key", DeicingService.APIKEY)
@@ -190,7 +190,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     @Override
     public void getDataFail(String msg) {
-        UToastUtil.show(this, msg);
+//        UToastUtil.show(this, msg);
         DeicingUtil.otherLogin(this,msg);
     }
 
