@@ -156,8 +156,6 @@
 
             </LinearLayout>
 
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -168,7 +166,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/ll_freezing_temp"
+                android:id="@+id/ll_ice_thickness"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -177,12 +175,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="冰点温度"
+                    android:text="冰层"
                     android:textColor="@color/text_gray"
                     />
 
                 <TextView
-                    android:id="@+id/tv_freezing_temp"
+                    android:id="@+id/tv_ice_thickness"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -219,6 +217,175 @@
 
             </LinearLayout>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_snow_thickness"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="雪层"
+                    android:textColor="@color/text_gray"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_snow_thickness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:text="-"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ponding"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="积水量"
+                    android:textColor="@color/text_gray"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_ponding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:text="-"
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_kpa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kpa"
+                    android:textColor="@color/text_gray"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_kpa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:text="-"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_rainfall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="降雨量"
+                    android:textColor="@color/text_gray"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_rainfall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:text="-"
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_temp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temp"
+                    android:textColor="@color/text_gray"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginEnd="10dp"
+                    android:text="-"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+
+
+            </LinearLayout>
 
 
         </LinearLayout>

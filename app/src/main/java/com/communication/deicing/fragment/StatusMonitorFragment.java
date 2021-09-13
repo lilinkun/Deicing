@@ -44,8 +44,18 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
     TextView tvWindSpeed;
     @BindView(R.id.tv_wind_direction)
     TextView tvWindDirection;
-    @BindView(R.id.tv_freezing_temp)
-    TextView tvFreezingTemp;
+    @BindView(R.id.tv_ice_thickness)
+    TextView tvIceThickness;
+    @BindView(R.id.tv_snow_thickness)
+    TextView tvSnowThickness;
+    @BindView(R.id.tv_ponding)
+    TextView tvPonding;
+    @BindView(R.id.tv_kpa)
+    TextView tvKpa;
+    @BindView(R.id.tv_temp)
+    TextView tvTemp;
+    @BindView(R.id.tv_rainfall)
+    TextView tvRainfall;
     @BindView(R.id.tv_wet_coefficient)
     TextView tvWetCoefficient;
     @BindView(R.id.tv_liquid_tank_level_value)
@@ -60,8 +70,8 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
     TextView tvHeatingPower;
     @BindView(R.id.tv_total_power)
     TextView tvTotalPower;
-    @BindView(R.id.ll_freezing_temp)
-    LinearLayout llFreezingTemp;
+    @BindView(R.id.ll_ice_thickness)
+    LinearLayout llIceThickness;
     @BindView(R.id.ll_unspray)
     LinearLayout llUnspray;
     @BindView(R.id.cl_spray)
@@ -90,7 +100,6 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
         mPresenter.getMonitorWeatherInfo(sn);
 
         if (!deviceName.equals("喷淋抗冰系统")){
-            llFreezingTemp.setVisibility(View.GONE);
             clSpray.setVisibility(View.GONE);
         }else {
             llUnspray.setVisibility(View.GONE);
@@ -118,8 +127,13 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
         tvHumidity.setText(String.valueOf(monitorEntity.getWeather_data().getHumidity()) +"%");
         tvWindSpeed.setText(String.valueOf(monitorEntity.getWeather_data().getWindForce()) +"m/s");
         tvWindDirection.setText(String.valueOf(monitorEntity.getWeather_data().getWindDirection())+"°");
-        tvFreezingTemp.setText(String.valueOf(monitorEntity.getPavement_data().getIcePoint())+"℃");
+        tvIceThickness.setText(String.valueOf(monitorEntity.getPavement_data().getIceThickness()));
         tvWetCoefficient.setText(monitorEntity.getPavement_data().getSlipperyDegree()+"");
+        tvSnowThickness.setText(String.valueOf(monitorEntity.getPavement_data().getSnowThickness()));
+        tvPonding.setText(String.valueOf(monitorEntity.getPavement_data().getPonding()));
+        tvKpa.setText(String.valueOf(monitorEntity.getWeather_data().getKpa()));
+        tvRainfall.setText(String.valueOf(monitorEntity.getWeather_data().getRainfall()));
+        tvTemp.setText(monitorEntity.getWeather_data().getTemperature() +"℃");
     }
 
     public void setDeviceData(DeicingControlEntity deicingControlEntity){

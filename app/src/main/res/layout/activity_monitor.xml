@@ -93,9 +93,30 @@
         android:id="@+id/tv_device_id_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tv_device_id"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_sn_value"
         app:layout_constraintTop_toTopOf="@+id/tv_device_id"
         app:layout_constraintBottom_toBottomOf="@+id/tv_device_id"
+        android:textColor="@color/text_black"
+        />
+
+    <TextView
+        android:id="@+id/tv_device_sn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_device_id"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_id"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        android:text="@string/device_sn_tip"
+        />
+
+    <TextView
+        android:id="@+id/tv_device_sn_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_device_sn"
+        app:layout_constraintTop_toTopOf="@+id/tv_device_sn"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_device_sn"
         android:textColor="@color/text_black"
         />
 
@@ -103,8 +124,8 @@
         android:id="@+id/tv_highways"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_device_id"
-        app:layout_constraintStart_toStartOf="@+id/tv_device_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_device_sn"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_sn"
         android:layout_marginTop="5dp"
         android:textColor="@color/text_gray"
         android:text="@string/highway_tip"
@@ -114,9 +135,72 @@
         android:id="@+id/tv_highways_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/tv_device_id_value"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_sn_value"
         app:layout_constraintTop_toTopOf="@+id/tv_highways"
         app:layout_constraintBottom_toBottomOf="@+id/tv_highways"
+        android:textColor="@color/text_black"
+        />
+
+    <TextView
+        android:id="@+id/tv_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_highways"
+        app:layout_constraintStart_toStartOf="@+id/tv_highways"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        android:text="@string/gps_tip"
+        />
+
+    <TextView
+        android:id="@+id/tv_gps_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_sn_value"
+        app:layout_constraintTop_toTopOf="@+id/tv_gps"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_gps"
+        android:textColor="@color/text_black"
+        />
+
+    <TextView
+        android:id="@+id/tv_cardid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gps"
+        app:layout_constraintStart_toStartOf="@+id/tv_gps"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        android:text="@string/card_id_tip"
+        />
+
+    <TextView
+        android:id="@+id/tv_cardid_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_device_sn_value"
+        app:layout_constraintTop_toTopOf="@+id/tv_cardid"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_cardid"
+        android:textColor="@color/text_black"
+        />
+
+    <TextView
+        android:id="@+id/tv_last_operation_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cardid"
+        app:layout_constraintStart_toStartOf="@+id/tv_cardid"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_gray"
+        android:text="@string/last_operation_time_tip"
+        />
+
+    <TextView
+        android:id="@+id/tv_last_operation_time_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_last_operation_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_last_operation_time"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_last_operation_time"
         android:textColor="@color/text_black"
         />
 
@@ -126,7 +210,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintTop_toBottomOf="@+id/tv_highways"
+        app:layout_constraintTop_toBottomOf="@+id/tv_last_operation_time"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 

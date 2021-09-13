@@ -23,6 +23,7 @@ import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -45,8 +46,16 @@ public class MonitorActivity extends BaseActivity<MonitorView, MonitorPresenter>
     TextView tvHighways;
     @BindView(R.id.tv_device_id_value)
     TextView tvDeviceId;
+    @BindView(R.id.tv_device_sn_value)
+    TextView tvDeviceSn;
     @BindView(R.id.tv_device_name)
     TextView tvDeviceName;
+    @BindView(R.id.tv_gps_value)
+    TextView tvDeviceGps;
+    @BindView(R.id.tv_cardid_value)
+    TextView tvCardidGps;
+    @BindView(R.id.tv_last_operation_time_value)
+    TextView tvLastOperationTimeGps;
 
     private List<BaseFragment> fragmentList;
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
@@ -70,7 +79,14 @@ public class MonitorActivity extends BaseActivity<MonitorView, MonitorPresenter>
             DeicingDeviceEntity deicingDeviceEntity = (DeicingDeviceEntity)bundle.getSerializable(ConstantsUtil.DEVICE);
             tvHighways.setText(deicingDeviceEntity.getHighways());
             tvDeviceId.setText(deicingDeviceEntity.getId());
+            tvDeviceSn.setText(deicingDeviceEntity.getSn());
+            tvCardidGps.setText(deicingDeviceEntity.getIccid());
             tvDeviceName.setText(DeicingUtil.getSystemName(deicingDeviceEntity.getDeicing_info().getType()));
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+            tvDeviceGps.setText("东经:" + deicingDeviceEntity.getLng() + ",北纬:" + deicingDeviceEntity.getLat());
+            tvLastOperationTimeGps.setText( simpleDateFormat.format(deicingDeviceEntity.getLast_operation_time()));
             sn = deicingDeviceEntity.getSn();
         }
 
