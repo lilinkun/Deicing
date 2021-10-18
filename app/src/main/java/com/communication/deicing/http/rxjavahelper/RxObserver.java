@@ -23,15 +23,17 @@ public abstract class RxObserver<T>  implements Observer<T>{
     public void onError(Throwable e) {
 
         if (!e.getMessage().contains("Failed to connect to")) {
-            _onError(e.getMessage());
+            if(e.getMessage().contains("network error! http response code is 404 or 5xx!")){
+                _onError("服务器或接口异常");
+            }else {
+                _onError(e.getMessage());
+            }
         }else {
             _onError("连接服务器异常");
         }
 
-
-
-
     }
+
     @Override
     public void onComplete() {
         _onComplete();

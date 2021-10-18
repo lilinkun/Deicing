@@ -19,6 +19,7 @@ import com.communication.deicing.entity.MonitorDataEntity;
 import com.communication.deicing.entity.MonitorEntity;
 import com.communication.deicing.presenter.StatusMonitorPresenter;
 import com.communication.deicing.util.DeicingUtil;
+import com.communication.deicing.util.RoadStatusEnum;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.StatusMonitorView;
 import com.communication.deicing.widget.FullyLinearLayoutManager;
@@ -54,6 +55,8 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
     TextView tvKpa;
     @BindView(R.id.tv_temp)
     TextView tvTemp;
+    @BindView(R.id.tv_road_status)
+    TextView tvRoadStatus;
     @BindView(R.id.tv_rainfall)
     TextView tvRainfall;
     @BindView(R.id.tv_wet_coefficient)
@@ -134,6 +137,10 @@ public class StatusMonitorFragment extends BaseFragment<StatusMonitorView, Statu
         tvKpa.setText(String.valueOf(monitorEntity.getWeather_data().getKpa()));
         tvRainfall.setText(String.valueOf(monitorEntity.getWeather_data().getRainfall()));
         tvTemp.setText(monitorEntity.getWeather_data().getTemperature() +"℃");
+
+        String str = RoadStatusEnum.getVal(monitorEntity.getPavement_data().getRoadInfo());
+
+        tvRoadStatus.setText(TextUtils.isEmpty(str) ? "qita" : str);
     }
 
     public void setDeviceData(DeicingControlEntity deicingControlEntity){

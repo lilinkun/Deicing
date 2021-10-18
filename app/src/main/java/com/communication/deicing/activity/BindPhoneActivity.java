@@ -10,6 +10,7 @@ import com.communication.deicing.R;
 import com.communication.deicing.base.BaseActivity;
 import com.communication.deicing.base.BasePresenter;
 import com.communication.deicing.presenter.BindPhonePresenter;
+import com.communication.deicing.util.ConstantsUtil;
 import com.communication.deicing.util.DeicingUtil;
 import com.communication.deicing.util.UToastUtil;
 import com.communication.deicing.view.BindPhoneView;
@@ -40,6 +41,10 @@ public class BindPhoneActivity extends BaseActivity<BindPhoneView, BindPhonePres
 
     @Override
     public void initView() {
+
+        if (getIntent() != null && getIntent().getStringExtra(ConstantsUtil.PHONE) != null){
+            evMobilePhoneValue.setText(getIntent().getStringExtra(ConstantsUtil.PHONE));
+        }
 
     }
 

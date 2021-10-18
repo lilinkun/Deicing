@@ -47,8 +47,9 @@
     <string name="gps_tip">GPS：</string>
     <string name="card_id_tip">卡号：</string>
     <string name="last_operation_time_tip">最后通讯时间：</string>
-    <string name="kpa">气压：</string>
-    <string name="temp">温度：</string>
+    <string name="kpa">气压</string>
+    <string name="temp">温度</string>
+    <string name="road_status">路面状况</string>
 
     <string name="switch_device">开关</string>
     <string name="booster_pump">增压泵</string>
